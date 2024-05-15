@@ -1,3 +1,33 @@
+-- Create Person table
+CREATE TABLE Person (
+    PersonID INT PRIMARY KEY,
+    PersonName VARCHAR(100),
+    Address VARCHAR(255)
+);
+
+-- Create PhoneNumber table
+CREATE TABLE PhoneNumber (
+    PhoneNumber VARCHAR(20) PRIMARY KEY,
+    NetworkType VARCHAR(50),
+    PersonID INT,
+    FOREIGN KEY (PersonID) REFERENCES Person(PersonID)
+);
+
+-- Create Email table
+CREATE TABLE Email (
+    EmailAddress VARCHAR(255) PRIMARY KEY,
+    PersonName VARCHAR(100),
+    PhoneNumber VARCHAR(20),
+    FOREIGN KEY (PersonName) REFERENCES Person(PersonName),
+    FOREIGN KEY (PhoneNumber) REFERENCES PhoneNumber(PhoneNumber)
+);
+
+
+
+
+
+
+
 -- 1)Find the network for a specific person
 
 Select a .Network type from phone number a inner join person p on a .Person ID=p .Person ID
